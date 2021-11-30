@@ -1,0 +1,80 @@
+.weatherApp {
+  background: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));
+  border: 5px solid #ffc107;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 25px;
+  padding: 10px;
+  max-width: 576px;
+}
+
+#search-bar {
+  color: #ffc107;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#inputcity {
+  border: solid #ffc107;
+  border-radius: 5px;
+  padding: 6px;
+}
+
+.curentemoji {
+  text-align: center;
+  position: relative;
+}
+
+.sone {
+  font-size: 70px;
+}
+
+.col h1.current-city {
+  text-transform: capitalize;
+  width: 264px;
+}
+
+.row.forecast {
+  text-align: center;
+  color: #ffc10a;
+  margin-top: 15px;
+}
+
+.col.weather-specs {
+  position: relative;
+  top: 25px;
+  width: 264px;
+}
+
+.weather-description {
+  text-transform: capitalize;
+}
+.col hr {
+  border-top: 5px solid #ffc10a;
+  max-width: 100%;
+  text-align: center;
+}
+
+.card {
+  margin: 10px 0px;
+  padding: 1px;
+  width: 260px;
+}
+
+.col-6.temp {
+  font-size: 20px;
+  padding: 24px 24px 6px 12px;
+  text-align: center;
+}
+
+.col-6.emoji {
+  font-size: 70px;
+  padding: 6px 12px 6px 24px;
+  text-align: center;
+}
+
+.fas {
+  color: #ffc10a;
+}
