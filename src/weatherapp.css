@@ -5,6 +5,7 @@
   display: block;
   margin: 0 auto;
   margin-top: 25px;
+  margin-bottom: 25px;
   padding: 10px;
   max-width: 576px;
 }
@@ -77,4 +78,9 @@
 
 .fas {
   color: #ffc10a;
+}
+
+.openSourceLink {
+  font-family: monospace;
+  text-align: center;
 }
