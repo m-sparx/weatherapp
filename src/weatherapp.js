@@ -16,6 +16,13 @@ function updateWeather(response) {
   let wind = Math.round(response.data.wind.speed);
   let windElement = document.querySelector("#wind-element");
   windElement.innerHTML = `${wind}mph`;
+
+  let icon = document.querySelector("#current-icon");
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  icon.setAttribute("alt", response.data.weather[0].description);
 }
 
 //this calls the API when you put in a city
