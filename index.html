@@ -19,159 +19,75 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
-  <div>
-    <div class="container">
-      <div class="weatherApp">
-      <form id="search-bar">
-        <button type="button" class="btn btn-warning" id="city-position">
-          <i class="far fa-dot-circle"></i>
-        </button>
-        <input
-          id="input-city"
-          type="text"
-          placeholder="Your City"
-          autocomplete="off"
-          autofocus="on"
-        />
+    <div>
+      <div class="container">
+        <div class="weatherApp">
+          <form id="search-bar">
+            <button type="button" class="btn btn-warning" id="city-position">
+              <i class="far fa-dot-circle"></i>
+            </button>
+            <input
+              id="input-city"
+              type="text"
+              placeholder="Your City"
+              autocomplete="off"
+              autofocus="on"
+            />
 
-        <button type="button" class="btn btn-warning">SEARCH</button>
-      </form>
+            <button type="button" class="btn btn-warning">SEARCH</button>
+          </form>
 
-      <div class="row curenttemp">
-        <div class="col curentemoji">
-          <h1 id="current-city"></h1>
-            <img 
-            src=""
-            alt=""
-            id="current-icon"
-            class="sone"/>
-        </div>
-        <div class="col" id="weather-specs">
-          <strong id="timestamp"></strong>
+          <div class="row curenttemp">
+            <div class="col curentemoji">
+              <h1 id="current-city"></h1>
+              <img src="" alt="" id="current-icon" class="sone" />
+            </div>
+            <div class="col" id="weather-specs">
+              <strong id="timestamp"></strong>
+              <br />
+              <span id="weather-description"></span>
+              <br />
+              <span
+                ><strong class="temperature" id="temperature">°</strong>
+                Temperature</span
+              >
+              <span class="units">
+                <a href="" id="celsius-link">C</a> |
+                <a href="" id="fahrenheit-link">F</a>
+              </span>
+              <br />
+              <span><strong id="humidity-element">% </strong> Humidity</span>
+              <br />
+              <span><strong id="wind-element">mph </strong> Wind</span>
+            </div>
+          </div>
+          <div class="row forecast">
+            <div class="col"><hr /></div>
+            <h3 class="col">THIS WEEK</h3>
+            <div class="col"><hr /></div>
+          </div>
+
+          <div>
+            <div id="weeklyForecast"></div>
+          </div>
+
+          <div class="card quote" id="quote">
+            <div class="row">
+              <div class="col-3 quoteEmoji">🦖</div>
+              <div class="col-9 quoteText">
+                <p>Make It Great!</p>
+              </div>
+            </div>
+          </div>
           <br />
-          <span id="weather-description"></span>
-          <br />
-          <span
-            ><strong class="temperature" id="temperature">°</strong>
-            Temperature</span
-          >
-          <span class="units">
-            <a href="celsius-link">C</a> |
-            <a href="fahrenheit-link">F</a>
-          </span>
-          <br />
-          <span><strong id="humidity-element">% </strong> Humidity</span>
-          <br />
-          <span><strong id="wind-element">mph </strong> Wind</span>
+          <p class="openSourceLink">
+            This WeatherApp was designed and built by Maria 💁 and is open
+            sourced on
+            <a href="https://github.com/m-sparx/weatherapp"> GitHub</a>.
+          </p>
         </div>
       </div>
-      <div class="row forecast">
-        <div class="col"><hr /></div>
-        <h3 class="col">THIS WEEK</h3>
-        <div class="col"><hr /></div>
-      </div>
-
-      <div class="row">
-        <div class="col-6">
-          <div class="card">
-            <div class="row">
-              <div class="col-6 emoji">
-                <i class="fas fa-sun"></i>
-              </div>
-              <div class="col-6 temp">
-                Monday
-                <br />
-                <strong>78°</strong>67°
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-6">
-          <div class="card">
-            <div class="row">
-              <div class="col-6 emoji">
-                <i class="fas fa-sun"></i>
-              </div>
-              <div class="col-6 temp">
-                Tuesday
-                <br />
-                <strong>78°</strong>67°
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-6">
-          <div class="card">
-            <div class="row">
-              <div class="col-6 emoji">
-                <i class="fas fa-sun"></i>
-              </div>
-              <div class="col-6 temp">
-                Wednesday
-                <br />
-                <strong>78°</strong>67°
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-6">
-          <div class="card">
-            <div class="row">
-              <div class="col-6 emoji">
-                <i class="fas fa-sun"></i>
-              </div>
-              <div class="col-6 temp">
-                Thursday
-                <br />
-                <strong>78°</strong>67°
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-6">
-          <div class="card">
-            <div class="row">
-              <div class="col-6 emoji">
-                <i class="fas fa-sun"></i>
-              </div>
-              <div class="col-6 temp">
-                Friday
-                <br />
-                <strong>78°</strong>67°
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-6 quote">
-          <div class="card">
-            <div class="row">
-              <div class="col-6 emoji">🦖</div>
-              <div class="col-6 temp">
-                Make it
-                <br />
-                great!
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br />
-      <p class="openSourceLink">
-        This WeatherApp was designed and built by Maria 💁 and is open sourced
-        on
-        <a href="https://github.com/m-sparx/weatherapp"> GitHub</a>.
-      </p>
     </div>
-  </div>
     <script src="src/weatherapp.js"></script>
   </body>
 </html>
