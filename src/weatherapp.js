@@ -67,6 +67,36 @@ myPosition.addEventListener("click", coordPosition);
 //this is what the page will open to
 search("New York");
 
+function updateForecast() {
+  let forecastCard = document.querySelector("#weeklyForecast");
+
+  let days = ["Monday", "Tuesday", "Wednesday", "Thursday"];
+
+  let forecastHTML = `<div class="row forecastRow">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col-3 card">
+      <div class="forecastDay">${day}</div>
+      <img
+        src="http://openweathermap.org/img/wn/50d@2x.png" 
+        alt="" class="forecastIcon" 
+        width="126" />
+      <div class="forecastTemps">
+        <strong class="forecastTempMax">78°</strong>
+        <span class="forexastTempMin">67°</span>
+      </div>
+    </div>
+    `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastCard.innerHTML = forecastHTML;
+}
+
+updateForecast();
+
 //this sum bool
 
 function formatTimeStamp(today) {
