@@ -23,6 +23,7 @@ function updateWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   icon.setAttribute("alt", response.data.weather[0].description);
+  forecastApi(response.data.coord);
 }
 
 //this calls the API when you put in a city
@@ -42,7 +43,7 @@ function handleInput(event) {
   search(city);
 }
 
-//this fethes the coord API URL
+//this fetches the coord API URL
 function coordCity(position) {
   let weatherApiKey = "a589138e19e414146bdc7b9f72b8baa4";
   let coordWeatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${weatherApiKey}&units=imperial`;
@@ -67,25 +68,56 @@ myPosition.addEventListener("click", coordPosition);
 //this is what the page will open to
 search("New York");
 
-function updateForecast() {
+//this fetches the forecast API
+function forecastApi(coordinates) {
+  let weatherApiKey = "a589138e19e414146bdc7b9f72b8baa4";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${weatherApiKey}&units=imperial`;
+  axios.get(apiUrl).then(updateForecast);
+}
+
+//this formats the forecast days
+function formatForecastDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Saturday",
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+  ];
+  return day[days];
+}
+
+//this rearanges & updates inner html
+function updateForecast(response) {
+  let dailyForecast = response.data.daily;
+
   let forecastCard = document.querySelector("#weeklyForecast");
 
-  let days = ["Monday", "Tuesday", "Wednesday", "Thursday"];
-
   let forecastHTML = `<div class="row forecastRow">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  dailyForecast.forEach(function (dailyForecast, index) {
+    if (index < 4)
+      forecastHTML =
+        forecastHTML +
+        `
     <div class="col-3 card">
-      <div class="forecastDay">${day}</div>
+      <div class="forecastDay">${formatForecastDay(dailyForecast.dt)}</div>
       <img
-        src="http://openweathermap.org/img/wn/50d@2x.png" 
+        src="http://openweathermap.org/img/wn/${
+          dailyForecast.weather[0].icon
+        }@2x.png" 
         alt="" class="forecastIcon" 
         width="126" />
       <div class="forecastTemps">
-        <strong class="forecastTempMax">78°</strong>
-        <span class="forexastTempMin">67°</span>
+        <strong class="forecastTempMax">${Math.round(
+          dailyForecast.temp.max
+        )}°</strong>
+        <span class="forexastTempMin">${Math.round(
+          dailyForecast.temp.min
+        )}°</span>
       </div>
     </div>
     `;
@@ -94,8 +126,6 @@ function updateForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastCard.innerHTML = forecastHTML;
 }
-
-updateForecast();
 
 //this sum bool
 
@@ -129,21 +159,3 @@ function formatTimeStamp(today) {
 let timeStamp = document.querySelector("#timestamp");
 let currentTime = new Date();
 timeStamp.innerHTML = formatTimeStamp(currentTime);
-
-//function convertToFahrenheit(event) {
-//  event.preventDefault();
-//  let temperatureElement = document.querySelector("#temperature");
-//  temperatureElement.innerHTML = 66;
-//}
-//
-//function convertToCelsius(event) {
-//  event.preventDefault();
-//  let temperatureElement = document.querySelector("#temperature");
-//  temperatureElement.innerHTML = 19;
-//}
-//
-//let fahrenheitLink = document.querySelector("#fahrenheit-link");
-//fahrenheitLink.addEventListener("click", convertToFahrenheit);
-//
-//let celsiusLink = document.querySelector("#celsius-link");
-//celsiusLink.addEventListener("click", convertToCelsius);
