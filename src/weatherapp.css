@@ -28,19 +28,14 @@
   position: relative;
 }
 
-.sone {
-  font-size: 70px;
+#current-icon.sone {
+  display: block;
+  margin: 0 auto;
 }
 
 .col h1.current-city {
   text-transform: capitalize;
   width: 264px;
-}
-
-.row.forecast {
-  text-align: center;
-  color: #ffc10a;
-  margin-top: 15px;
 }
 
 .col.weather-specs {
@@ -49,35 +44,58 @@
   width: 264px;
 }
 
-.weather-description {
+#weather-description {
   text-transform: capitalize;
 }
+
+.row.forecast {
+  text-align: center;
+  color: #ffc10a;
+  margin-top: 15px;
+}
+
 .col hr {
   border-top: 5px solid #ffc10a;
   max-width: 100%;
   text-align: center;
 }
 
-.card {
-  margin: 10px 0px;
-  padding: 1px;
-  width: 260px;
-}
-
-.col-6.temp {
-  font-size: 20px;
-  padding: 24px 24px 6px 12px;
+.col-3.card {
+  border: 5px solid #ffc107;
+  border-radius: 5px;
+  margin: 10px 5px 10px 5px;
   text-align: center;
+  padding: 10px 5px;
+  max-width: 22.5%;
 }
 
-.col-6.emoji {
+.forecastIcon {
+  display: block;
+  margin: 0 auto;
+  max-width: 80%;
+}
+
+.row.forecastRow {
+  margin-left: 1px;
+}
+
+.card.quote {
+  border: 5px solid #ffc107;
+  border-radius: 5px;
+  display: blocks;
+  margin: 0 auto;
+  max-width: 540px;
+}
+
+.quoteEmoji {
   font-size: 70px;
-  padding: 6px 12px 6px 24px;
   text-align: center;
 }
 
-.fas {
-  color: #ffc10a;
+.quoteText {
+  font-size: 20px;
+  padding: 12px;
+  text-align: center;
 }
 
 .openSourceLink {
