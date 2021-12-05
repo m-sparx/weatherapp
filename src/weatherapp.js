@@ -132,7 +132,15 @@ function updateForecast(response) {
 function formatTimeStamp(today) {
   let date = today.getDate();
   let year = today.getFullYear();
-  let days = ["Sunday", "Monday", "Tuesday", "Thursday", "Friday", "Saturday"];
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
   let day = days[today.getDay()];
   let months = [
     "Jan",
