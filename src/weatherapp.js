@@ -80,15 +80,15 @@ function formatForecastDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
   let days = [
-    "Saturday",
     "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
+    "Saturday",
   ];
-  return day[days];
+  return days[day];
 }
 
 //this rearanges & updates inner html
@@ -132,7 +132,7 @@ function updateForecast(response) {
 function formatTimeStamp(today) {
   let date = today.getDate();
   let year = today.getFullYear();
-  let days = ["Saturday", "Sunday", "Monday", "Tuesday", "Thursday", "Friday"];
+  let days = ["Sunday", "Monday", "Tuesday", "Thursday", "Friday", "Saturday"];
   let day = days[today.getDay()];
   let months = [
     "Jan",
