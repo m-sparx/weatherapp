@@ -90,12 +90,16 @@
 .quoteEmoji {
   font-size: 70px;
   text-align: center;
+  padding-right: 2px !important;
 }
 
 .quoteText {
   font-size: 20px;
-  padding: 12px;
+  padding: 18px 18px 18px 0 !important;
   text-align: center;
+}
+.quoteText > p {
+  margin-bottom: 0px;
 }
 
 .openSourceLink {
